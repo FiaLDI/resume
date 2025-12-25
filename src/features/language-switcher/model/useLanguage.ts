@@ -1,7 +1,8 @@
 import { useLanguageStore } from "./useLanguageStore";
 
 export function useLanguage() {
-    const current = useLanguageStore(state => state.current);
-    const setCurrent = useLanguageStore(state => state.setCurrent);
-    return { current, setCurrent };
+  const lang = useLanguageStore((s) => s.lang);
+  const setLang = useLanguageStore((s) => s.setLang);
+
+  return { lang, setLang };
 }
