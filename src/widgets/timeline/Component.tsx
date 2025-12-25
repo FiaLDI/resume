@@ -47,6 +47,7 @@ export const TimeLine = ({ timelineDict }: TimeLineProps) => {
     <section
       ref={containerRef}
       data-scrollable
+      style={{ WebkitOverflowScrolling: "touch" }}
       className="h-screen no-scrollbar overflow-y-auto max-w-7xl mx-auto w-full p-5 pt-10 relative"
     >
       <h2 className="text-3xl font-bold border-b-2 border-neutral-700/70 text-white w-full p-5">

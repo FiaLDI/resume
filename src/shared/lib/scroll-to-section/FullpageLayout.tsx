@@ -29,18 +29,18 @@ function getScrollableParent(
   return null;
 }
 
-function canScroll(el: HTMLElement, deltaY: number) {
+function canScroll(el: HTMLElement, delta: number) {
   const { scrollTop, scrollHeight, clientHeight } = el;
 
   if (scrollHeight <= clientHeight) return false;
 
-  // scroll down
-  if (deltaY > 0) {
+  // delta > 0 — пытаемся скроллить вниз
+  if (delta > 0) {
     return scrollTop + clientHeight < scrollHeight - 1;
   }
 
-  // scroll up
-  if (deltaY < 0) {
+  // delta < 0 — пытаемся скроллить вверх
+  if (delta < 0) {
     return scrollTop > 0;
   }
 
@@ -54,31 +54,31 @@ export function FullpageLayout({ sections }: { sections: ReactNode[] }) {
     sectionCount: sections.length,
   });
 
+  const isMobile =
+    typeof window !== "undefined" &&
+    window.matchMedia("(pointer: coarse)").matches;
+
   const [lockScroll, setLockScroll] = useState(false);
   const lastWheelTs = useRef(0);
   const max = sections.length - 1;
 
   /* ---------- DESKTOP WHEEL ---------- */
   useEffect(() => {
+    if (isMobile) return;
+
     const onWheel = (e: WheelEvent) => {
-      // 1) Если wheel над scrollable-контейнером и он может скроллить — отдаём ему
       const scrollable = getScrollableParent(e.target);
-      if (scrollable && canScroll(scrollable, e.deltaY)) {
-        return;
-      }
 
-      // 2) Fullpage может быть залочен (mobile / drag)
+      // если есть scrollable и он может скроллить — даём ему
+      if (scrollable && canScroll(scrollable, e.deltaY)) return;
+
       if (lockScroll) return;
-
-      // 3) Threshold
       if (Math.abs(e.deltaY) < WHEEL_THRESHOLD) return;
 
-      // 4) Cooldown
       const now = Date.now();
       if (now - lastWheelTs.current < WHEEL_COOLDOWN_MS) return;
       lastWheelTs.current = now;
 
-      // 5) Перелистываем fullpage
       e.preventDefault();
 
       if (e.deltaY > 0 && index < max) setIndex(index + 1);
@@ -87,7 +87,46 @@ export function FullpageLayout({ sections }: { sections: ReactNode[] }) {
 
     window.addEventListener("wheel", onWheel, { passive: false });
     return () => window.removeEventListener("wheel", onWheel);
-  }, [index, max, lockScroll, setIndex]);
+  }, [index, max, lockScroll, setIndex, isMobile]);
+
+  /* ---------- MOBILE SWIPE ---------- */
+  useEffect(() => {
+    if (!isMobile) return;
+
+    let startY = 0;
+
+    const onTouchStart = (e: TouchEvent) => {
+      startY = e.touches[0].clientY;
+    };
+
+    const onTouchEnd = (e: TouchEvent) => {
+      const endY = e.changedTouches[0].clientY;
+      const delta = endY - startY;
+
+      if (Math.abs(delta) < SWIPE_THRESHOLD) return;
+
+      const scrollable = getScrollableParent(e.target);
+
+      // если внутри scrollable и он может скроллить в сторону жеста — не листаем секцию
+      // свайп вверх (delta < 0) => scroll вниз
+      // свайп вниз (delta > 0) => scroll вверх
+      if (scrollable && canScroll(scrollable, delta < 0 ? 1 : -1)) {
+        return;
+      }
+
+      // иначе — fullpage
+      if (delta < 0 && index < max) setIndex(index + 1);
+      if (delta > 0 && index > 0) setIndex(index - 1);
+    };
+
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchend", onTouchEnd, { passive: true });
+
+    return () => {
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchend", onTouchEnd);
+    };
+  }, [index, max, setIndex, isMobile]);
 
   /* ---------- RENDER ---------- */
 
@@ -112,11 +151,11 @@ export function FullpageLayout({ sections }: { sections: ReactNode[] }) {
           <motion.div
             key={index}
             className="absolute inset-0"
-            drag="y"
+            drag={isMobile ? false : "y"}
             dragConstraints={{ top: 0, bottom: 0 }}
             dragElastic={0.15}
             onDragEnd={(_, info) => {
-              if (lockScroll) return;
+              if (isMobile || lockScroll) return;
 
               if (info.offset.y < -SWIPE_THRESHOLD && index < max) {
                 setIndex(index + 1);

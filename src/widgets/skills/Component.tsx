@@ -55,6 +55,7 @@ export const Skills = ({ skillsDict }: SkillsProps) => {
       <div
         ref={scrollRef}
         data-scrollable
+        style={{ WebkitOverflowScrolling: "touch" }}
         className="h-full max-w-7xl mx-auto
                    px-6 py-40
                    overflow-y-auto overscroll-contain

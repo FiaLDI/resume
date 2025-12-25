@@ -42,6 +42,7 @@ export const ProjectList = ({ projectsDict }: ProjectListProps) => {
     <section
       ref={containerRef}
       data-scrollable
+      style={{ WebkitOverflowScrolling: "touch" }}
       className="h-screen no-scrollbar relative overflow-y-auto max-w-7xl mx-auto w-full p-5 pt-10 text-white"
     >
       <h2 className="text-3xl font-bold border-b-2 border-neutral-700 p-5">
