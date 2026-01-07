@@ -3,10 +3,11 @@
 import { motion, Variants } from "framer-motion";
 import { useContext } from "react";
 import { FullpageContext } from "@/features/custom-scroll/lib";
-import { CONTACT_STATIC, ContactDict } from "@/pages-data/contact";
 import { useMounted } from "@/shared/utils/useMounted";
 import { useDict } from "@/shared/utils/useDict";
 import { IComponentProps } from "./interface";
+import { CONTACT_STATIC } from "@/entities/contact/model/contact";
+import { ContactItem } from "@/entities/contact";
 
 const CONTACT_INDEX = 4;
 
@@ -123,32 +124,3 @@ export const Contacts = ({ contactsDict }: IComponentProps) => {
     </section>
   );
 };
-
-/* ---------- helpers ---------- */
-
-function ContactItem({
-  label,
-  value,
-  href,
-}: {
-  label: string;
-  value: string;
-  href: string;
-}) {
-  return (
-    <div>
-      <span className="text-xs uppercase tracking-wide text-neutral-500">
-        {label}
-      </span>
-      <p className="text-lg mt-1">
-        <a
-          href={href}
-          target="_blank"
-          className="hover:text-indigo-400 transition"
-        >
-          {value}
-        </a>
-      </p>
-    </div>
-  );
-}

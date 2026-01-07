@@ -17,13 +17,10 @@ export function FullpageProgress() {
                     rounded-xl px-4 py-2">
       {SECTIONS.map((label, i) => (
         <button
+          data-current={index===i}
           key={label}
           onClick={() => setIndex(i)}
-          className={`text-sm transition-colors ${
-            index === i
-              ? "text-indigo-400"
-              : "text-neutral-400 hover:text-neutral-200"
-          }`}
+          className={"text-sm transition-colors data-[current=true]:text-indigo-400 text-neutral-400 hover:text-neutral-200 cursor-pointer"}
         >
           {label}
         </button>

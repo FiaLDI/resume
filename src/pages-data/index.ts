@@ -1,8 +1,8 @@
 import { SkillsData } from "@/entities/skill/model/skills";
-import { ContactData } from "./contact";
 import { HeroData } from "./hero";
 import { ProjectsData } from "./projects";
 import { TimelineData } from "./timeline";
+import { ContactData } from "@/entities/contact/model/contact";
 
 export const dictionaries = {
   hero: HeroData,
