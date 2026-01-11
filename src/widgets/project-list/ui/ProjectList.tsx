@@ -94,7 +94,7 @@ export const ProjectList = ({ projectsDict }: ProjectListProps) => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-  {grouped[category].map((project) => <ProjectItem project={project} />)}
+  {grouped[category].map((project) => <ProjectItem key={`project-${project.id}`} project={project} />)}
 </div>
           </motion.section>
         ))}

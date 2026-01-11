@@ -5,8 +5,7 @@ import { useContext } from "react";
 import { FullpageContext } from "@/features/custom-scroll/lib";
 import { useMounted } from "@/shared/utils/useMounted";
 import { useDict } from "@/shared/utils/useDict";
-import { IComponentProps } from "./interface";
-import { CONTACT_STATIC } from "@/entities/contact/model/contact";
+import { CONTACT_STATIC, ContactDict } from "@/entities/contact/model/contact";
 import { ContactItem } from "@/entities/contact";
 
 const CONTACT_INDEX = 4;
@@ -28,6 +27,10 @@ const item: Variants = {
     x: 0,
     transition: { duration: 1.2, ease: [0.7, 1, 0.8, 1] },
   },
+};
+
+export interface IComponentProps {
+  contactsDict: ContactDict;
 };
 
 export const Contacts = ({ contactsDict }: IComponentProps) => {
