@@ -5,18 +5,9 @@ import { useDict } from "@/shared/lib";
 import { ContactItem } from "@/entities/contact";
 import { useInitAnimation } from "../model/useInitAnimation";
 import { CONTACT_STATIC } from "../model/data";
+import { OrderAnimation } from "@/shared/ui/animation";
 
 /* ---------- ANIMATIONS ---------- */
-
-const container: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.72,
-      delayChildren: 0.8,
-    },
-  },
-};
 
 const item: Variants = {
   hidden: { opacity: 0, x: 240 },
@@ -32,16 +23,11 @@ const item: Variants = {
 export const Contacts = () => {
   const data = useDict("contacts");
 
-  const { isActive } = useInitAnimation()
+  const { isActive } = useInitAnimation();
 
   return (
     <section className="h-screen max-w-7xl mx-auto w-full px-6">
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate={isActive ? "visible" : "hidden"}
-        className="relative flex items-center justify-center h-full"
-      >
+      <OrderAnimation isActive={isActive}>
         {/* GLOW */}
         <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
           <div className="w-[700px] h-[700px] rounded-full bg-indigo-500/10 blur-[160px]" />
@@ -121,7 +107,7 @@ export const Contacts = () => {
             </motion.div>
           </div>
         </motion.div>
-      </motion.div>
+      </OrderAnimation>
     </section>
   );
 };
