@@ -1,13 +1,6 @@
 
-import { Language } from "@/shared/lib/language";
-
-export type ContactDict = {
-  title: string;
-  subtitle: string;
-  messageTitle: string;
-  messagePlaceholder: string;
-  cta: string;
-};
+import { Language } from "@/shared/lib";
+import { ContactDict } from "../types/contacts.types";
 
 export const CONTACT_STATIC = {
   email: "leonid.stepanoff2015@gmail.com",
