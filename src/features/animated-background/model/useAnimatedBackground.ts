@@ -1,15 +1,8 @@
 "use client";
 
 import { useTransform } from "framer-motion";
-import { IComponentProps } from "../ui/interface";
-
-const THEMES = [
-  { base: "#020617", accent: "rgba(99,102,241,0.35)" },
-  { base: "#020617", accent: "rgba(168,85,247,0.35)" },
-  { base: "#020617", accent: "rgba(14,165,233,0.35)" },
-  { base: "#020617", accent: "rgba(236,72,153,0.35)" },
-  { base: "#020617", accent: "rgba(34,197,94,0.35)" },
-];
+import { THEMES } from "./background.config";
+import { IComponentProps } from "../ui/AnimatedBackground";
 
 export const useAnimatedBackground = ({index, progress, projectsProgress}: IComponentProps) => {
     const theme = THEMES[index % THEMES.length];

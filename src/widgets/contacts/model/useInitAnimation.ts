@@ -1,4 +1,4 @@
-import { FullpageContext } from "@/features/custom-scroll/lib";
+import { FullpageContext } from "@/features/custom-scroll/model";
 import { useContext } from "react";
 
 const CONTACT_INDEX = 4;

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useContext } from "react";
 
-import { FullpageContext } from "@/features/custom-scroll/lib";
+import { FullpageContext } from "@/features/custom-scroll/model";
 import { useDict } from "@/shared/lib";
 import { LineToRight } from "@/shared/ui/animation";
 import { DefaultButton, PrimaryButton } from "@/shared/ui/button";
