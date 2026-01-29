@@ -31,7 +31,7 @@ export const ProjectList = () => {
             <div className="h-0.5 w-[350px] mt-3 px-6 bg-indigo-500 shadow-[0_0_5px_0.5px_rgba(99,102,241,0.9)]"></div>
           </h2>
         </div>
-        <div className="space-y-10 pb-32">
+        <div className="space-y-10 pb-32 pt-5">
           {categories.map((category) => (
             <ActiveCategory
               key={`project-category-${category}`}
