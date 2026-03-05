@@ -1,7 +1,5 @@
 "use client"
 
-import "prismjs/themes/prism-tomorrow.css"
-import "prismjs/components/prism-javascript"
 import { ChangeMode, useChangeMode } from "@/features/change-mode"
 import { CodeForm, examples } from "@/features/run-code"
 import { useRunCode } from "@/features/run-code/model/useRunCode"

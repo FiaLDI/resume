@@ -1,4 +1,6 @@
-import Prism from "prismjs";
+"use client"
+
+import Prism from "@/shared/lib/prism/prism"
 import { useEffect, useRef } from "react"
 
 const INDENT = "  "
@@ -9,11 +11,12 @@ export const CodeForm = ({code, setCode, runCode}: {code: string, runCode: () =>
     const preRef=useRef<HTMLPreElement>(null);
     const codeRef=useRef<HTMLElement>(null)
 
-    useEffect(()=>{
-        if(codeRef.current){
-            Prism.highlightElement(codeRef.current)
-        }
-    },[code])
+    useEffect(() => {
+        const el = codeRef.current
+        if (!el) return
+
+        Prism.highlightElement(el)
+    }, [code])
 
     const syncScroll=()=>{
         if(!textareaRef.current || !preRef.current) return
@@ -39,53 +42,53 @@ export const CodeForm = ({code, setCode, runCode}: {code: string, runCode: () =>
 
             if (e.shiftKey) {
 
-    // ---------- NO SELECTION ----------
-    if (start === end) {
+            // ---------- NO SELECTION ----------
+            if (start === end) {
 
-        const lineStart = value.lastIndexOf("\n", start - 1) + 1
-        const line = value.substring(lineStart, start)
+                const lineStart = value.lastIndexOf("\n", start - 1) + 1
+                const line = value.substring(lineStart, start)
 
-        if (line.startsWith(INDENT)) {
+                if (line.startsWith(INDENT)) {
 
-            const newCode =
-                value.substring(0, lineStart) +
-                line.slice(INDENT.length) +
-                value.substring(start)
+                    const newCode =
+                        value.substring(0, lineStart) +
+                        line.slice(INDENT.length) +
+                        value.substring(start)
+
+                    setCode(newCode)
+
+                    requestAnimationFrame(() => {
+                        textarea.selectionStart =
+                        textarea.selectionEnd =
+                        start - INDENT.length
+                    })
+                }
+
+                return
+            }
+
+            // ---------- MULTILINE ----------
+            const lines = selected.split("\n")
+
+            const updated = lines.map(line =>
+                line.startsWith(INDENT)
+                    ? line.slice(INDENT.length)
+                    : line.replace(/^\s{1,2}/, "")
+            )
+
+            const newSelected = updated.join("\n")
+
+            const newCode = before + newSelected + after
 
             setCode(newCode)
 
             requestAnimationFrame(() => {
-                textarea.selectionStart =
-                textarea.selectionEnd =
-                start - INDENT.length
+                textarea.selectionStart = start
+                textarea.selectionEnd = end
             })
+
+            return
         }
-
-        return
-    }
-
-    // ---------- MULTILINE ----------
-    const lines = selected.split("\n")
-
-    const updated = lines.map(line =>
-        line.startsWith(INDENT)
-            ? line.slice(INDENT.length)
-            : line.replace(/^\s{1,2}/, "")
-    )
-
-    const newSelected = updated.join("\n")
-
-    const newCode = before + newSelected + after
-
-    setCode(newCode)
-
-    requestAnimationFrame(() => {
-        textarea.selectionStart = start
-        textarea.selectionEnd = end
-    })
-
-    return
-}
 
             // ---------- TAB ----------
 
