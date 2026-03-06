@@ -6,6 +6,7 @@ import { getLang } from "@/shared/server/getLang";
 import { ClientOverlays } from "./ClientOverlays";
 import { ThemeInit } from "@/features/theme-switcher";
 import { getTheme } from "@/shared/server/getTheme";
+import { SolutionInit } from "@/entities/solution";
 
 const roboto = Roboto({
   subsets: ["latin", "cyrillic"],
@@ -25,6 +26,7 @@ export default async function RootLayout({
       <body className={`${roboto.variable} antialiased bg-background`}>
         <LanguageInit lang={lang} />
         <ThemeInit theme={theme} />
+        <SolutionInit solution={[]} />
 
         {children}
 

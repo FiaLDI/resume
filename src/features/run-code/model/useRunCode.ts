@@ -10,7 +10,6 @@ export const useRunCode = ({mode, tests}: {mode: Mode, tests: TestCase[]}) => {
     const [consoleOut,setConsoleOut]=useState<string[]>([]);
     const [results,setResults]=useState<ResultType[]>([]);
     const [time,setTime]=useState<number|null>(null);
-
     
     const parseInput=(input:string)=>{
         switch(mode){
@@ -28,6 +27,16 @@ export const useRunCode = ({mode, tests}: {mode: Mode, tests: TestCase[]}) => {
 
             default:
             return input
+        }
+    }
+
+    const normalize = (v: unknown): string => {
+        if (typeof v === "string") return v
+
+        try {
+            return JSON.stringify(v)
+        } catch {
+            return String(v)
         }
     }
 
@@ -52,11 +61,13 @@ export const useRunCode = ({mode, tests}: {mode: Mode, tests: TestCase[]}) => {
                 const parsed=parseInput(t.input)
                 const out=fn(parsed,fakeConsole)
 
-                return{
-                    input:t.input,
-                    expected:t.expected,
-                    output:JSON.stringify(out),
-                    pass:JSON.stringify(out)===t.expected
+                const output = normalize(out)
+
+                return {
+                    input: t.input,
+                    expected: t.expected,
+                    output,
+                    pass: output === t.expected
                 }
             })
 

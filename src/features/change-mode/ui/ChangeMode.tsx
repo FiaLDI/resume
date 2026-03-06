@@ -19,7 +19,7 @@ export const ChangeMode = ({
                 <button
                     key={m}
                     onClick={()=>changeMode(m,callback)}
-                    className={`px-3 py-1 rounded text-sm capitalize
+                    className={`px-3 py-1 rounded text-sm capitalize cursor-pointer text-white
                     ${mode===m?"bg-blue-600":"bg-zinc-800 hover:bg-zinc-700"}`}
                 >
                     {m}

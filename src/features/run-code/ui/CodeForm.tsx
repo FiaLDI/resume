@@ -1,7 +1,8 @@
 "use client"
 
-import Prism from "@/shared/lib/prism/prism"
-import { useEffect, useRef } from "react"
+import { CodeArea } from "@/entities/code-area"
+import { usePrism } from "@/entities/code-area/model/usePrism"
+import { useRef, useState } from "react";
 
 const INDENT = "  "
 
@@ -9,14 +10,43 @@ export const CodeForm = ({code, setCode, runCode}: {code: string, runCode: () =>
 
     const textareaRef=useRef<HTMLTextAreaElement>(null);
     const preRef=useRef<HTMLPreElement>(null);
-    const codeRef=useRef<HTMLElement>(null)
+    const codeRef=useRef<HTMLElement>(null);
+    const [dragActive, setDragActive] = useState(false)
 
-    useEffect(() => {
-        const el = codeRef.current
-        if (!el) return
+    usePrism(codeRef, code);
 
-        Prism.highlightElement(el)
-    }, [code])
+    const loadFile = (file: File) => {
+
+        if (!file.name.endsWith(".txt") && !file.name.endsWith(".js")) return
+
+        const reader = new FileReader()
+
+        reader.onload = () => {
+            const text = reader.result as string
+            setCode(text)
+        }
+
+        reader.readAsText(file)
+    }
+
+    const handleDrop = (e: React.DragEvent) => {
+        e.preventDefault()
+        setDragActive(false)
+
+        const file = e.dataTransfer.files?.[0]
+        if (!file) return
+
+        loadFile(file)
+    }
+
+    const handleDragOver = (e: React.DragEvent) => {
+        e.preventDefault()
+        setDragActive(true)
+    }
+
+    const handleDragLeave = () => {
+        setDragActive(false)
+    }
 
     const syncScroll=()=>{
         if(!textareaRef.current || !preRef.current) return
@@ -134,7 +164,12 @@ export const CodeForm = ({code, setCode, runCode}: {code: string, runCode: () =>
     }
 
     return (
-        <div className="relative">
+        <div
+            className="relative"
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+        >
             <textarea
                 ref={textareaRef}
                 value={code}
@@ -146,15 +181,18 @@ export const CodeForm = ({code, setCode, runCode}: {code: string, runCode: () =>
                     "absolute inset-0 w-full h-full bg-transparent text-transparent caret-white resize-none p-4 outline-none font-mono text-sm leading-6 whitespace-pre [tab-size:2]"
             />
 
-            <pre
-                ref={preRef}
-                className="p-4 overflow-auto font-mono text-sm leading-6 whitespace-pre [tab-size:2]"
-            >
-                <code ref={codeRef} className="language-javascript">
-                    {code}
-                </code>
-            </pre>
-
+            <CodeArea preRef={preRef} codeRef={codeRef} code={code}/>
+            {dragActive && (
+                <div className="
+                    absolute inset-0
+                    flex items-center justify-center
+                    bg-black/70
+                    text-white text-lg
+                    pointer-events-none
+                ">
+                    Drop your .txt or .js file here
+                </div>
+            )}
         </div>
     )
 }
