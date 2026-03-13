@@ -224,7 +224,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         category: "Core",
         title: "Orbis Game — Sci-Fi Survival (Unity)",
         description:
-          "Реализовал ключевые игровые системы: способности, характеристики, баффы, квесты и процедурную генерацию мира. Работал над оптимизацией рендеринга и спавна объектов.",
+          "Реализовал игровые системы: мультиплеер, движение, способности, характеристики, баффы, квесты и процедурную генерацию мира. Работал над оптимизацией рендеринга и спавна объектов.",
         tech: [
           "Unity",
           "C#",
@@ -276,11 +276,11 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
 
       {
         id: 7,
-        category: "Pet",
+        category: "Core",
         title: "Markdown Editor — desktop-приложение (Tauri)",
         description:
-          "Кроссплатформенный Markdown-редактор на Next.js и Tauri с упором на desktop-интеграцию, производительность и удобство использования.",
-        tech: ["Next.js", "Tauri", "Rust", "TypeScript"],
+          "Кроссплатформенный Markdown-редактор на Next.js и Tauri с упором на desktop-интеграцию, производительность и удобство использования. На данный момент поддерживает базовые функции IDE, в будущем будет добавлена сетевая синхронизация.",
+        tech: ["Next.js", "Tauri", "Rust", "TypeScript", "Nest.js", "Zustang"],
         link: "https://github.com/FiaLDI/Markdown-Editor",
         isPrivate: false,
       },
@@ -296,6 +296,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
           "Zustand",
           "TailwindCSS",
           "Framer Motion",
+          "FSD"
         ],
         link: "https://github.com/FiaLDI/PostCreator",
         isPrivate: false,
@@ -358,16 +359,16 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         link: "https://github.com/FiaLDI/Exam-helper",
         isPrivate: false,
       },
-{
-  id: 13,
-  category: "Legacy",
-  title: "Многошаговая форма",
-  description:
-    "Ранний frontend-проект с реализацией многошаговой формы, управлением состоянием, валидацией и навигацией по этапам.",
-  tech: ["React", "TypeScript", "CSS"],
-  link: "https://github.com/FiaLDI/Multistepform",
-  isPrivate: false,
-}
+      {
+        id: 13,
+        category: "Legacy",
+        title: "Многошаговая форма",
+        description:
+          "Ранний frontend-проект с реализацией многошаговой формы, управлением состоянием, валидацией и навигацией по этапам.",
+        tech: ["React", "TypeScript", "CSS"],
+        link: "https://github.com/FiaLDI/Multistepform",
+        isPrivate: false,
+      }
 
     ],
   },
