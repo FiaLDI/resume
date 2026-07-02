@@ -50,18 +50,7 @@ export const Contacts = () => {
                 href={CONTACT_STATIC.telegram}
               />
             </motion.div>
-            <motion.div variants={slideInRight}>
-              <h3 className="text-xl font-medium mb-4">
-                {data.messageTitle}
-              </h3>
-              <form className="flex flex-col gap-4">
-                <textarea
-                  placeholder={data.messagePlaceholder}
-                  className="w-full h-32 rounded-xl bg-neutral-950/60 border border-neutral-800 p-4 text-sm text-white focus:outline-none focus:border-indigo-500/60 transition resize-none"
-                />
-                <DefaultButton title={data.cta} />
-              </form>
-            </motion.div>
+            
           </div>
         </motion.div>
       </OrderAnimation>

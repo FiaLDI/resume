@@ -7,52 +7,95 @@ export const SkillsGroupData: Record<Language, SkillsGroupDict> = {
       {
         level: "Core Expertise",
         description:
-          "Technologies I work with daily and rely on when delivering production-ready solutions.",
+          "Technologies I use to design and build production-ready full-stack applications with scalable architecture.",
         glow: true,
         items: [
           {
             capability:
-              "Building scalable and maintainable frontend applications",
-            stack: ["React", "Next.js", "TypeScript", "Feature-Sliced Design"],
+              "Building modern frontend applications with scalable architecture",
+            stack: [
+              "React",
+              "Next.js",
+              "TypeScript",
+              "Feature-Sliced Design",
+              "SSR",
+            ],
           },
           {
             capability:
-              "Designing backend services and integrating APIs",
-            stack: ["NestJS", "Node.js", "REST"],
+              "Designing backend services, REST APIs, and business logic",
+            stack: [
+              "FastAPI",
+              "Node.js",
+              "Express",
+              "Hono",
+              "REST API",
+              "JWT",
+              "DDD",
+              "Clean Architecture",
+            ],
           },
           {
             capability:
-              "Managing application state and server data",
-            stack: ["Zustand", "React Query"],
+              "Application state management and server synchronization",
+            stack: [
+              "Zustand",
+              "MobX",
+              "Redux",
+              "React Query",
+              "Socket.IO",
+            ],
           },
         ],
       },
       {
-        level: "Supporting Tools",
+        level: "Infrastructure & Data",
         description:
-          "Tools and technologies that support development workflows, quality, and reliability.",
+          "Technologies for data storage, deployment, and application infrastructure.",
         items: [
           {
             capability:
-              "Working with databases and data modeling",
-            stack: ["PostgreSQL", "Prisma"],
+              "Database design and persistence",
+            stack: [
+              "PostgreSQL",
+              "MongoDB",
+              "SQLite",
+              "Redis",
+              "Prisma",
+              "SQLAlchemy",
+            ],
           },
           {
             capability:
-              "Development tooling and automation",
-            stack: ["Docker", "CI/CD", "ESLint", "Prettier"],
+              "Containerization and development workflow",
+            stack: [
+              "Docker",
+              "Docker Compose",
+              "Nginx",
+              "Git",
+              "CI/CD",
+              "ESLint",
+              "Prettier",
+            ],
           },
         ],
       },
       {
         level: "Exploration & Growth",
         description:
-          "Technologies I explore through experiments and side projects to expand my skill set.",
+          "Technologies explored through side projects and continuous learning.",
         items: [
           {
             capability:
-              "Experimental and cross-platform development",
-            stack: ["Rust", "Tauri", "Unity", "WebRTC"],
+              "Cross-platform, game and desktop development",
+            stack: [
+              "Rust",
+              "Tauri",
+              "Unity",
+              "FishNet",
+              "WebRTC",
+              "GraphQL",
+            ],
           },
         ],
       },
@@ -64,52 +107,95 @@ export const SkillsGroupData: Record<Language, SkillsGroupDict> = {
       {
         level: "Ключевая экспертиза",
         description:
-          "Технологии, с которыми я работаю ежедневно и использую при создании продакшен-решений.",
+          "Технологии, которые использую для разработки масштабируемых full-stack приложений и современной архитектуры.",
         glow: true,
         items: [
           {
             capability:
-              "Разработка масштабируемых и поддерживаемых frontend-приложений",
-            stack: ["React", "Next.js", "TypeScript", "Feature-Sliced Design"],
+              "Разработка современных frontend-приложений с масштабируемой архитектурой",
+            stack: [
+              "React",
+              "Next.js",
+              "TypeScript",
+              "Feature-Sliced Design",
+              "SSR",
+            ],
           },
           {
             capability:
-              "Проектирование серверной логики и интеграция API",
-            stack: ["NestJS", "Node.js", "REST"],
+              "Проектирование backend-сервисов, REST API и бизнес-логики",
+            stack: [
+              "FastAPI",
+              "Node.js",
+              "Express",
+              "Hono",
+              "REST API",
+              "JWT",
+              "DDD",
+              "Clean Architecture",
+            ],
           },
           {
             capability:
-              "Управление состоянием приложения и серверными данными",
-            stack: ["Zustand", "React Query"],
+              "Управление состоянием приложения и синхронизация данных",
+            stack: [
+              "Zustand",
+              "MobX",
+              "Redux",
+              "React Query",
+              "Socket.IO",
+            ],
           },
         ],
       },
       {
-        level: "Инструменты и экосистема",
+        level: "Инфраструктура и данные",
         description:
-          "Инструменты и технологии, которые дополняют разработку и помогают поддерживать качество и надёжность.",
+          "Технологии для хранения данных, контейнеризации и организации инфраструктуры приложений.",
         items: [
           {
             capability:
-              "Работа с базами данных и моделирование данных",
-            stack: ["PostgreSQL", "Prisma", "Redis"],
+              "Проектирование и работа с базами данных",
+            stack: [
+              "PostgreSQL",
+              "MongoDB",
+              "SQLite",
+              "Redis",
+              "Prisma",
+              "SQLAlchemy",
+            ],
           },
           {
             capability:
-              "Инструменты разработки и автоматизация процессов",
-            stack: ["Docker", "CI/CD", "ESLint", "Prettier"],
+              "Контейнеризация и инструменты разработки",
+            stack: [
+              "Docker",
+              "Docker Compose",
+              "Nginx",
+              "Git",
+              "CI/CD",
+              "ESLint",
+              "Prettier",
+            ],
           },
         ],
       },
       {
         level: "Изучение и развитие",
         description:
-          "Направления, которые я изучаю через эксперименты и pet-проекты.",
+          "Технологии, которые изучаю и применяю в pet-проектах и экспериментах.",
         items: [
           {
             capability:
-              "Экспериментальная и кроссплатформенная разработка",
-            stack: ["Rust", "Tauri", "Unity", "WebRTC"],
+              "Кроссплатформенная, desktop и игровая разработка",
+            stack: [
+              "Rust",
+              "Tauri",
+              "Unity",
+              "FishNet",
+              "WebRTC",
+              "GraphQL",
+            ],
           },
         ],
       },

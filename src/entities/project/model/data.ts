@@ -37,6 +37,48 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
       {
         id: 2,
         category: "Core",
+        title: "Internal Claim — Full-Stack Claim Management System",
+        description:
+          "Designed and developed a full-stack claim management system with Clean Architecture, SSR, and role-based authorization. Implemented backend business logic, REST API, JWT authentication via HttpOnly cookies, and a scalable frontend architecture.",
+        tech: [
+          "FastAPI",
+          "Python",
+          "Next.js",
+          "TypeScript",
+          "SQLAlchemy",
+          "SQLite",
+          "Zustand",
+          "Docker",
+          "JWT",
+          "Clean Architecture",
+          "DDD",
+        ],
+        link: "https://github.com/FiaLDI/internal-claim",
+        isPrivate: false,
+      },
+      {
+        id: 3,
+        category: "Core",
+        title: "Calc — Nutrition Tracking Platform",
+        description:
+          "Built a full-stack nutrition tracking platform with a multi-service architecture. Developed the frontend, REST API, authentication, image upload service, and Docker-based infrastructure for tracking meals, products, and nutrition statistics.",
+        tech: [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "MobX",
+          "Express",
+          "MongoDB",
+          "Docker",
+          "Nginx",
+          "JWT",
+        ],
+        link: "https://github.com/FiaLDI/Calc",
+        isPrivate: false,
+      },
+      {
+        id: 4,
+        category: "Pet",
         title: "Orbis Game — Sci-Fi Survival (Unity)",
         description:
           "Implemented core gameplay systems including abilities, stats, buffs, quests, and procedural world generation. Focused on performance optimization related to rendering and object spawning.",
@@ -52,7 +94,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
       },
 
       {
-        id: 3,
+        id: 5,
         category: "Contribution",
         title: "singlepagestartup — Project Contribution",
         description:
@@ -62,7 +104,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: false,
       },
       {
-        id: 4,
+        id: 6,
         category: "Contribution",
         title: "Kultfond RF (Private Project)",
         description:
@@ -71,7 +113,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: true,
       },
       {
-        id: 5,
+        id: 7,
         category: "Contribution",
         title: "business.zapaha.net (Private Project)",
         description:
@@ -80,7 +122,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: true,
       },
       {
-        id: 6,
+        id: 8,
         category: "Contribution",
         title: "didigallery.com (Private Project)",
         description:
@@ -90,7 +132,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
       },
 
       {
-        id: 7,
+        id: 9,
         category: "Pet",
         title: "Markdown Editor — Tauri Desktop Application",
         description:
@@ -100,8 +142,8 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: false,
       },
       {
-        id: 8,
-        category: "Pet",
+        id: 10,
+        category: "Legacy",
         title: "PostCreator — Automated Content Tool",
         description:
           "Developed a web tool for generating structured posts, implementing UI logic, animations, and local data persistence.",
@@ -117,7 +159,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
       },
 
       {
-        id: 9,
+        id: 11,
         category: "Legacy",
         title: "TaskManager",
         description:
@@ -127,7 +169,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: false,
       },
       {
-        id: 10,
+        id: 12,
         category: "Legacy",
         title: "Voice Chat — WebRTC Audio Application",
         description:
@@ -137,7 +179,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: false,
       },
       {
-        id: 11,
+        id: 13,
         category: "Core",
         title: "Personal Resume Platform",
         description:
@@ -155,39 +197,36 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: false,
       },
       {
-  id: 12,
-  category: "Core",
-  title: "Exam Helper — Knowledge & Ticket Management System",
-  description:
-    "Extended the resume platform into a full-featured exam helper system. Implemented ticket and question management, contextual search, and both local-only and server-based modes. Users can publish tickets and browse shared content without real-time communication.",
-  tech: [
-    "Next.js",
-    "TypeScript",
-    "Feature-Sliced Design",
-    "Zustand",
-    "PostgreSQL",
-    "Prisma",
-    "Full-text search",
-    "SSR",
-  ],
-  link: "https://github.com/FiaLDI/Exam-helper",
-  isPrivate: false,
-},
-{
-  id: 13,
-  category: "Legacy",
-  title: "Multi-step Form",
-  description:
-    "Early frontend project focused on building a multi-step form with state management, validation, and step-based navigation.",
-  tech: ["React", "TypeScript", "CSS"],
-  link: "https://github.com/FiaLDI/Multistepform",
-  isPrivate: false,
-}
-
+        id: 14,
+        category: "Pet",
+        title: "Exam Helper — Knowledge & Ticket Management System",
+        description:
+          "Extended the resume platform into a full-featured exam helper system. Implemented ticket and question management, contextual search, and both local-only and server-based modes. Users can publish tickets and browse shared content without real-time communication.",
+        tech: [
+          "Next.js",
+          "TypeScript",
+          "Feature-Sliced Design",
+          "Zustand",
+          "PostgreSQL",
+          "Prisma",
+          "Full-text search",
+          "SSR",
+        ],
+        link: "https://github.com/FiaLDI/Exam-helper",
+        isPrivate: false,
+      },
+      {
+        id: 13,
+        category: "Legacy",
+        title: "Multi-step Form",
+        description:
+          "Early frontend project focused on building a multi-step form with state management, validation, and step-based navigation.",
+        tech: ["React", "TypeScript", "CSS"],
+        link: "https://github.com/FiaLDI/Multistepform",
+        isPrivate: false,
+      }
     ],
   },
-
-
     ru: {
     categoriesMeta: {
       Core:
@@ -222,6 +261,48 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
       {
         id: 2,
         category: "Core",
+        title: "Internal Claim — система управления заявками",
+        description:
+          "Разработал full-stack систему управления внутренними заявками с использованием Clean Architecture и SSR. Реализовал бизнес-логику, REST API, JWT-аутентификацию через HttpOnly Cookie, ролевую модель пользователей, фильтрацию, поиск, сортировку и пагинацию.",
+        tech: [
+          "FastAPI",
+          "Python",
+          "Next.js",
+          "TypeScript",
+          "SQLAlchemy",
+          "SQLite",
+          "Zustand",
+          "Docker",
+          "JWT",
+          "Clean Architecture",
+          "DDD",
+        ],
+        link: "https://github.com/FiaLDI/internal-claim",
+        isPrivate: false,
+      },
+      {
+        id: 3,
+        category: "Core",
+        title: "Calc — платформа учета питания",
+        description:
+          "Разработал full-stack приложение для учета питания с многосервисной архитектурой. Реализовал frontend на Next.js, backend REST API, JWT-аутентификацию, отдельный CDN-сервис для изображений, управление продуктами, дневником питания и статистикой КБЖУ.",
+        tech: [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "MobX",
+          "Express",
+          "MongoDB",
+          "Docker",
+          "Nginx",
+          "JWT",
+        ],
+        link: "https://github.com/FiaLDI/Calc",
+        isPrivate: false,
+      },
+      {
+        id: 4,
+        category: "Pet",
         title: "Orbis Game — Sci-Fi Survival (Unity)",
         description:
           "Реализовал игровые системы: мультиплеер, движение, способности, характеристики, баффы, квесты и процедурную генерацию мира. Работал над оптимизацией рендеринга и спавна объектов.",
@@ -235,9 +316,8 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         link: "https://github.com/FiaLDI/Project-Terraform",
         isPrivate: false,
       },
-
       {
-        id: 3,
+        id: 5,
         category: "Contribution",
         title: "singlepagestartup — вклад в проект",
         description:
@@ -247,7 +327,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: false,
       },
       {
-        id: 4,
+        id: 6,
         category: "Contribution",
         title: "Kultfond RF (частный проект)",
         description:
@@ -256,7 +336,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: true,
       },
       {
-        id: 5,
+        id: 7,
         category: "Contribution",
         title: "business.zapaha.net (частный проект)",
         description:
@@ -265,7 +345,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: true,
       },
       {
-        id: 6,
+        id: 8,
         category: "Contribution",
         title: "didigallery.com (частный проект)",
         description:
@@ -273,10 +353,9 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         tech: ["React", "Next.js", "TailwindCSS"],
         isPrivate: true,
       },
-
       {
-        id: 7,
-        category: "Core",
+        id: 9,
+        category: "Pet",
         title: "Markdown Editor — desktop-приложение (Tauri)",
         description:
           "Кроссплатформенный Markdown-редактор на Next.js и Tauri с упором на desktop-интеграцию, производительность и удобство использования. На данный момент поддерживает базовые функции IDE, в будущем будет добавлена сетевая синхронизация.",
@@ -285,8 +364,8 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: false,
       },
       {
-        id: 8,
-        category: "Pet",
+        id: 10,
+        category: "Legacy",
         title: "PostCreator — инструмент генерации контента",
         description:
           "Веб-инструмент для генерации структурированных постов с UI-логикой, анимациями и локальным хранением данных.",
@@ -301,9 +380,8 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         link: "https://github.com/FiaLDI/PostCreator",
         isPrivate: false,
       },
-
       {
-        id: 9,
+        id: 11,
         category: "Legacy",
         title: "TaskManager",
         description:
@@ -313,7 +391,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: false,
       },
       {
-        id: 10,
+        id: 12,
         category: "Legacy",
         title: "Voice Chat — WebRTC аудиочат",
         description:
@@ -323,7 +401,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: false,
       },
       {
-        id: 11,
+        id: 12,
         category: "Core",
         title: "Платформа персонального резюме",
         description:
@@ -341,7 +419,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: false,
       },
       {
-        id: 12,
+        id: 13,
         category: "Pet",
         title: "Exam Helper — система работы с экзаменационными билетами",
         description:
@@ -360,7 +438,7 @@ export const ProjectsData: Record<Language, ProjectsDict> = {
         isPrivate: false,
       },
       {
-        id: 13,
+        id: 14,
         category: "Legacy",
         title: "Многошаговая форма",
         description:
