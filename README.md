@@ -90,6 +90,7 @@ The platform is designed to evolve into independent products while keeping the s
 ## Связанные проекты
 
 - Exam Helper — https://github.com/FiaLDI/Exam-helper
+- Internal Claim - https://github.com/FiaLDI/internal-claim
 
 ---
 
