@@ -75,6 +75,20 @@ export const TimelineData: Record<Language, TimelineDict> = {
         description:
           "Procedural generation, Ability/Buff systems, optimization, FishNet networking.",
       },
+      {
+        id: 11,
+        title: "Backend Architecture",
+        subtitle: "FastAPI, DDD, Clean Architecture",
+        description:
+          "Designed scalable backend applications using FastAPI, SQLAlchemy, layered architecture, dependency injection, authentication, and business-oriented domain logic.",
+      },
+      {
+        id: 12,
+        title: "Production Full-Stack Development",
+        subtitle: "Commercial projects & Docker",
+        description:
+          "Worked on production applications, improved existing codebases, built multi-service systems with Docker, authentication, SSR, and modern frontend architecture.",
+      },
     ],
   },
 
@@ -149,6 +163,20 @@ export const TimelineData: Record<Language, TimelineDict> = {
         subtitle: "Игровые системы и архитектура",
         description:
           "Процедурная генерация, Ability/Buff системы, оптимизация, FishNet.",
+      },
+      {
+        id: 11,
+        title: "Backend-архитектура",
+        subtitle: "FastAPI, DDD, Clean Architecture",
+        description:
+          "Разрабатывал масштабируемые backend-приложения на FastAPI с использованием SQLAlchemy, Clean Architecture, Dependency Injection, авторизации и бизнес-логики.",
+      },
+      {
+        id: 12,
+        title: "Коммерческий Full-Stack",
+        subtitle: "Production-разработка и Docker",
+        description:
+          "Работал с production-проектами, развивал существующие кодовые базы, создавал многосервисные приложения с Docker, SSR, авторизацией и современной frontend-архитектурой.",
       },
     ],
   },
