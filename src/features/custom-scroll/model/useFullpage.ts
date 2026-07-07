@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { animate, useMotionValue } from "framer-motion";
+import { getScrollable } from "../utils/getHtml";
+import { calcScrollProgress } from "../utils/calc";
 
 interface Options {
   sectionCount: number;
@@ -19,33 +21,10 @@ export function useFullpage({ sectionCount }: Options) {
     setTimeout(() => (lockRef.current = false), 650);
   };
 
-  const getSectionRoot = () =>
-    document.querySelector(
-      `[data-fullpage-section="${index}"]`
-    ) as HTMLElement | null;
-
-  const getScrollable = () => {
-    const root = getSectionRoot();
-    if (!root) return null;
-
-    return (
-      root.querySelector<HTMLElement>("[data-scrollable]") ?? root
-    );
-  };
-
-  const calcScrollProgress = (el: HTMLElement) => {
-    if (el.scrollHeight <= el.clientHeight) return 0;
-    return Math.min(
-      1,
-      Math.max(
-        0,
-        el.scrollTop / (el.scrollHeight - el.clientHeight)
-      )
-    );
-  };
+  
 
   useEffect(() => {
-    const el = getScrollable();
+    const el = getScrollable(index);
     if (!el) return;
 
     const update = () => {
@@ -70,7 +49,7 @@ export function useFullpage({ sectionCount }: Options) {
     const onWheel = (e: WheelEvent) => {
       if (lockRef.current) return;
 
-      const el = getScrollable();
+      const el = getScrollable(index);
       if (!el) return;
 
       const goingDown = e.deltaY > 0;

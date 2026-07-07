@@ -16,10 +16,11 @@ export function usePlatform(): PlatformInfo {
     prefersReducedMotion: false,
     mounted: false,
   });
-
+  
   useEffect(() => {
     const ua = navigator.userAgent;
-
+    
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPlatform({
       isIOS: /iPad|iPhone|iPod/.test(ua),
       isMobile: window.matchMedia("(pointer: coarse)").matches,

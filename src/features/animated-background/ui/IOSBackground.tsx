@@ -2,9 +2,6 @@
 
 import { glowVar, type Theme } from "../model/background.config";
 
-interface Props {
-  theme: Theme;
-}
 
 export const IOSBackground = ({ base, glow }: Theme) => {
   const glowC = glowVar(glow);

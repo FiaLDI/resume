@@ -1,7 +1,5 @@
 import { useRef, useState, useMemo } from "react";
-import {  ProjectItem,
-  ProjectCategory,
-  ProjectItemType,} from "@/entities/project";
+import {  ProjectCategory, ProjectItemType,} from "@/entities/project";
 
 interface UseProjectCategoriesResult {
   containerRef: React.RefObject<HTMLElement | null>;

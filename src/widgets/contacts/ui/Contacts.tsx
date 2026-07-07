@@ -7,7 +7,6 @@ import { useInitAnimation } from "../model/useInitAnimation";
 import { CONTACT_STATIC } from "../model/data";
 import { OrderAnimation } from "@/shared/ui/animation";
 import { slideInRight } from "../model/animations";
-import { DefaultButton } from "@/shared/ui/button";
 
 export const Contacts = () => {
   const data = useDict("contacts");
