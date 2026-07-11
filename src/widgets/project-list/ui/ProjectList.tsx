@@ -28,7 +28,7 @@ export const ProjectList = () => {
       className="relative h-[500vh]"
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="flex h-full flex-col px-5 lg:px-20 py-16">
+        <div className="flex h-full flex-col px-5 lg:px-20 py-5 lg:py-16">
           <div className="mb-8 shrink-0">
             <h2 className="text-5xl font-semibold tracking-tight text-white">
               {data.title}

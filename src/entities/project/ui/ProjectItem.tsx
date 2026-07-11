@@ -19,7 +19,7 @@ export const ProjectItem = ({
 }) => {
   return (
     <article
-      className="group relative flex h-full w-[450px] shrink-0 flex-col overflow-hidden rounded-4xl border border-white/10 bg-linear-to-b from-neutral-900 via-neutral-900 to-black p-8 transition-all duration-300 hover:border-indigo-500/40"
+      className="group relative flex h-full w-[400px] lg:w-[450px] shrink-0 flex-col overflow-hidden rounded-4xl border border-white/10 bg-linear-to-b from-neutral-900 via-neutral-900 to-black p-8 transition-all duration-300 hover:border-indigo-500/40"
     >
       <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
         <div className="absolute -top-28 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-indigo-500/15 blur-3xl" />
