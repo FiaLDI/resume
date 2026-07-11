@@ -24,7 +24,7 @@ export const TimeLine = () => {
     <div
       id="timeline"
       data-scrollable
-      className="min-h-screen w-full lg:h-screen lg:overflow-y-auto lg:no-scrollbar"
+      className="min-h-screen"
     >
 
       <div className="max-w-7xl mx-auto px-6 py-12 pb-32 text-white relative">
@@ -50,12 +50,7 @@ export const TimeLine = () => {
 
             {/* Progress line */}
             <div
-              className="
-                absolute top-0 w-px
-                bg-indigo-500
-                transition-all
-                duration-300
-              "
+              className="absolute top-0 w-px bg-indigo-500 transition-all duration-300 "
               style={{ height: `${progressPercent}%` }}
             />
           </div>

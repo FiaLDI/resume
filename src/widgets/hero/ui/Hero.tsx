@@ -1,15 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useContext } from "react";
 
-import { FullpageContext } from "@/features/custom-scroll/model";
 import { useDict } from "@/shared/lib";
 import { LineToRight } from "@/shared/ui/animation";
 import { DefaultButton, PrimaryButton } from "@/shared/ui/button";
+import { ThemeSwitcher } from "@/features/theme-switcher";
+import { LanguageSwitcher } from "@/features/language-switcher/ui/LanguageSwitcher";
 
 export const Hero = () => {
-  const { setIndex } = useContext(FullpageContext);
   const hero = useDict("hero");
 
   return (
@@ -17,6 +16,8 @@ export const Hero = () => {
       id="hero"
       className="h-screen w-full"
     >
+      <ThemeSwitcher />
+      <LanguageSwitcher />
       <div className="max-w-7xl mx-auto h-full px-6">
         <div className="relative flex h-full items-center justify-between gap-16 text-white">
           <div className="flex flex-col gap-8 max-w-xl">
@@ -51,12 +52,21 @@ export const Hero = () => {
             </div>
             <div className="flex gap-4 pt-4">
               <DefaultButton
-                title={hero.ctaPrimary}
-                handler={() => setIndex?.(2)}
+                title={hero.ctaPrimary}handler={() => {
+                  document.getElementById("project")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
               />
               <PrimaryButton
                 title={hero.ctaSkills}
-                handler={() => setIndex?.(1)}
+                handler={() => {
+                  document.getElementById("skills")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                  });
+                }}
               />
             </div>
           </div>

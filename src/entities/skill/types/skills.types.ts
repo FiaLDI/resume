@@ -9,7 +9,7 @@ export type SkillGroup = {
   level: string;
   description: string;
   glow?: boolean;
-  items: SkillItemType[];
+  stack: string[];
 };
 
 export type SkillsGroupDict = {

@@ -1,67 +1,55 @@
 "use client";
 
+import { useRef, useState } from "react";
+
 import { ProjectItem } from "@/entities/project";
 import { useDict } from "@/shared/lib";
-import { useProjectCategories } from "../model/useProjectCategories";
-import { ActiveCategory } from "@/shared/ui/animation";
+
+import { useHorizontalScroll } from "../model/useHorizontalScroll";
+import { Progress } from "./Progress";
 
 export const ProjectList = () => {
   const data = useDict("ProjectWidget");
   const items = useDict("projects");
+  const [progress, setProgress] = useState(0);
 
-  const {
-    activeCategory,
-    setActiveCategory,
-    grouped,
-    categories,
-  } = useProjectCategories(items.items);
+  const sectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  useHorizontalScroll(sectionRef, trackRef, {
+    gap: 120,
+    onProgress: setProgress,
+  });
 
   return (
     <section
+      ref={sectionRef}
       id="project"
-      data-scrollable
-      className="min-h-screen lg:h-screen lg:overflow-y-auto lg:no-scrollbar"
+      className="relative h-[500vh]"
     >
-      <div className="max-w-5xl mx-auto px-6 py-16 text-white">
-
-        <div className="mb-20">
-          <h2 className="text-5xl font-semibold tracking-tight">
-            {data.title}
-          </h2>
-
-          <div className="mt-5 h-px w-32 bg-indigo-500" />
-        </div>
-
-        <div className="space-y-24 pb-32">
-
-          {categories.map((category) => (
-            <ActiveCategory
-              key={category}
-              category={category}
-              isActive={activeCategory === category}
-              setActiveCategory={setActiveCategory}
+      <div className="sticky top-0 h-screen overflow-hidden">
+        <div className="flex h-full flex-col px-5 lg:px-20 py-16">
+          <div className="mb-8 shrink-0">
+            <h2 className="text-5xl font-semibold tracking-tight text-white">
+              {data.title}
+            </h2>
+            <div className="mt-6">
+              <Progress progress={progress} />
+            </div>
+          </div>
+          <div className="flex flex-1 items-center overflow-hidden">
+            <div
+              ref={trackRef}
+              className="flex gap-10 h-full will-change-transform"
             >
-              <div className="mb-12">
-                <p className="text-xs uppercase tracking-[0.35em] text-indigo-400">
-                  {category}
-                </p>
-
-                <p className="mt-3 max-w-2xl text-neutral-400">
-                  {items.categoriesMeta[category]}
-                </p>
-              </div>
-
-              <div className="space-y-12">
-                {grouped[category].map((project) => (
-                  <ProjectItem
-                    key={project.id}
-                    project={project}
-                  />
-                ))}
-              </div>
-            </ActiveCategory>
-          ))}
-
+              {items.items.map((project) => (
+                <ProjectItem
+                  key={project.id}
+                  project={project}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
