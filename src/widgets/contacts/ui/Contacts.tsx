@@ -1,38 +1,31 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useDict } from "@/shared/lib";
 import { ContactItem } from "@/entities/contact";
-import { useInitAnimation } from "../model/useInitAnimation";
 import { CONTACT_STATIC } from "../model/data";
-import { OrderAnimation } from "@/shared/ui/animation";
-import { slideInRight } from "../model/animations";
 
 export const Contacts = () => {
   const data = useDict("contacts");
 
-  const { isActive } = useInitAnimation();
-
   return (
-    <div id="contact" className="min-h-screen max-w-7xl mx-auto w-full px-6 py-16 flex justify-center items-center">
-      <OrderAnimation isActive={isActive}>
+    <div id="contact" className="min-h-screen max-w-7xl mx-auto w-full px-6 py-16 flex justify-center items-center ">
+      <div>
         <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
           <div className="w-[700px] h-[700px] rounded-full bg-indigo-500/10 blur-[160px]" />
         </div>
-        <motion.div
-          variants={slideInRight}
-          className="relative z-10 w-full max-w-5xl rounded-3xl bg-neutral-900/60 backdrop-blur-xl border border-neutral-800 shadow-[0_30px_80px_rgba(0,0,0,0.6)] p-10 text-white"
+        <div
+          className="relative z-10 w-full max-w-5xl rounded-3xl drop-shadow-[0_0_8px_rgb(129_140_248)] text-center bg-neutral-900/60 backdrop-blur-xl border border-neutral-800 shadow-[0_30px_80px_rgba(0,0,0,0.6)] p-10 text-white"
         >
-          <motion.div variants={slideInRight} className="mb-10">
+          <div className="mb-10">
             <h2 className="text-4xl font-semibold tracking-tight">
               {data.title}
             </h2>
             <p className="mt-3 text-sm text-neutral-400 max-w-xl">
               {data.subtitle}
             </p>
-          </motion.div>
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div variants={slideInRight} className="space-y-6 text-neutral-300">
+          </div>
+          <div className="">
+            <div className="space-y-6 text-neutral-300">
               <ContactItem
                 label="Email"
                 value={CONTACT_STATIC.email}
@@ -48,11 +41,10 @@ export const Contacts = () => {
                 value={CONTACT_STATIC.telegram}
                 href={CONTACT_STATIC.telegram}
               />
-            </motion.div>
-            
+            </div>
           </div>
-        </motion.div>
-      </OrderAnimation>
+        </div>
+      </div>
     </div>
   );
 };

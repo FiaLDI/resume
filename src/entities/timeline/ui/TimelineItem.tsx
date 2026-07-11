@@ -38,10 +38,7 @@ export function TimelineItem({
       className="relative flex justify-center"
     >
       <motion.span
-        className="
-          absolute top-7
-          h-3 w-3 rounded-full
-        "
+        className="absolute top-7 h-3 w-3 rounded-full"
         animate={{
           backgroundColor: isCompleted ? "#6366f1" : "#525252",
           boxShadow: isActive

@@ -10,7 +10,7 @@ export const Skills = () => {
   return (
     <div
       id="skills"
-      className="lg:h-screen w-full"
+      className="lg:h-screen w-full pt-40"
     >
       <div
         data-scrollable
